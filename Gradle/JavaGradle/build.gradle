@@ -44,7 +44,7 @@ task runAppAgain(type: JavaExec) {
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
 task runFraction(type: JavaExec) {
   group 'Fraction Tasks'
-  description 'Tasks which runs Fraction with default arguments or given values'
+  description 'Tasks which runs Fraction with given values'
 
   classpath = sourceSets.main.runtimeClasspath
 
@@ -52,6 +52,20 @@ task runFraction(type: JavaExec) {
   
   if (project.hasProperty("num1") && project.hasProperty("num2")) {
     args(project.getProperty('num1'), project.getProperty('num2'));
+   }
+}
+
+// task that runs the Fraction Main which does not use arguments: gradle runFraction
+task runFrac(type: JavaExec) {
+  group 'Fraction Tasks'
+  description 'Tasks which runs Fraction with given values'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Fraction'
+  
+  if (project.hasProperty("denom") && project.hasProperty("num")) {
+    args(project.getProperty('num'), project.getProperty('denom'));
    }
 }
 
